@@ -14,6 +14,7 @@
 		D8E2E7701CF84E1D005B444F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E2E76E1CF84E1D005B444F /* LaunchScreen.storyboard */; };
 		D8E2E77B1CF84E1E005B444F /* RACustomCameraSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E77A1CF84E1E005B444F /* RACustomCameraSwiftTests.swift */; };
 		D8E2E7861CF84E1E005B444F /* RACustomCameraSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7851CF84E1E005B444F /* RACustomCameraSwiftUITests.swift */; };
+		D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7941CF85192005B444F /* RACustomCamera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D8E2E7811CF84E1E005B444F /* RACustomCameraSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACustomCameraSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E2E7851CF84E1E005B444F /* RACustomCameraSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RACustomCameraSwiftUITests.swift; sourceTree = "<group>"; };
 		D8E2E7871CF84E1E005B444F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8E2E7941CF85192005B444F /* RACustomCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACustomCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		D8E2E7641CF84E1D005B444F /* RACustomCameraSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D8E2E7931CF85157005B444F /* RACustomCamera */,
 				D8E2E7651CF84E1D005B444F /* AppDelegate.swift */,
 				D8E2E7671CF84E1D005B444F /* ViewController.swift */,
 				D8E2E7691CF84E1D005B444F /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				D8E2E7871CF84E1E005B444F /* Info.plist */,
 			);
 			path = RACustomCameraSwiftUITests;
+			sourceTree = "<group>";
+		};
+		D8E2E7931CF85157005B444F /* RACustomCamera */ = {
+			isa = PBXGroup;
+			children = (
+				D8E2E7941CF85192005B444F /* RACustomCamera.swift */,
+			);
+			path = RACustomCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 		D8E2E75A1CF84E1C005B444F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RA;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = RockyAo;
@@ -258,6 +270,7 @@
 			files = (
 				D8E2E7681CF84E1D005B444F /* ViewController.swift in Sources */,
 				D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */,
+				D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACustomCameraSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RACustomCameraSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACustomCameraSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RA.RACustomCameraSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
