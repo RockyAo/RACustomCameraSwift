@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AssetsLibrary
 
 enum cameraDevice:Int {
     case video = 0
@@ -21,14 +22,102 @@ class RACustomCamera: NSObject {
     private var inputDevice:AVCaptureDeviceInput!
     private var imageOutput:AVCaptureStillImageOutput!
     private var priviewLayer:AVCaptureVideoPreviewLayer!
+    
+    
+    ///单例
+    internal static let shareCamera:RACustomCamera = {
+        
+        let camera = RACustomCamera()
+        
+        return camera
+    }()
+    
+    override init() {
+        super.init()
+        
+        installCameraDevice()
+    }
+
 }
+
+// MARK: - public method
 extension RACustomCamera {
 
+    /// 添加预览图层
+    ///
+    /// - parameter view:  添加到哪个view上
+    /// - parameter frame: 尺寸
     internal func addPrviewLayerToView(view:UIView!,frame:CGRect!) -> Void{
     
         priviewLayer.frame = frame
         view.layer.masksToBounds = true
-        view.layer.addSublayer(priviewLayer)
+        view.layer.insertSublayer(priviewLayer, atIndex: 0)
+        
+    }
+    
+    /// 启动相机
+    internal func startCamera() -> Void{
+        
+        if session.running == false {
+            
+            session.startRunning()
+        }
+    }
+    
+    /// 关闭相机
+    internal func stopCamera() -> Void {
+        
+        if session.running == true {
+            
+            session.stopRunning()
+        }
+    }
+    
+    internal func takePhoto() -> UIImage {
+        
+        let captureConnetion = imageOutput.connectionWithMediaType(switchMeiaType(.video))
+        
+        imageOutput.captureStillImageAsynchronouslyFromConnection(captureConnetion) { (imageBuffer,error) in
+            
+            let jpegData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
+            
+            let jpegImage = UIImage(data: jpegData)
+        
+            
+            let author = ALAssetsLibrary.authorizationStatus()
+            
+            if author == ALAuthorizationStatus.Restricted || author == ALAuthorizationStatus.Denied {
+            
+                return
+            }
+
+            
+           UIImageWriteToSavedPhotosAlbum(jpegImage!, self,nil, nil)
+            
+        }
+        
+        return UIImage()
+    }
+    
+    
+    func image(image: UIImage, didFinishSavingWithError: NSError?,contextInfo: AnyObject)
+        
+    {
+        
+        if didFinishSavingWithError != nil
+            
+        {
+            
+            print("error!")
+            
+            return
+            
+        }
+        
+        
+        
+        print("image was saved")
+        
     }
 }
 
@@ -52,7 +141,8 @@ extension RACustomCamera {
         }
         
         imageOutput = AVCaptureStillImageOutput()
-        imageOutput.setValue(AVVideoCodecJPEG, forKey: AVVideoCodecKey)
+        
+        imageOutput.outputSettings = [AVVideoCodecKey:AVVideoCodecJPEG]
         
         if session.canAddInput(inputDevice) == true {
             
@@ -102,5 +192,6 @@ extension RACustomCamera {
             return AVMediaTypeMuxed
         }
     }
+    
     
 }

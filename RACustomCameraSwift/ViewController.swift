@@ -14,6 +14,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        RACustomCamera.shareCamera.addPrviewLayerToView(view, frame: CGRectMake(0, 0, kRAMainScreenW(), kRAMainScreenH()))
+        
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        RACustomCamera.shareCamera.startCamera()
+    
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        RACustomCamera.shareCamera.stopCamera()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +38,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func takePhotoClick(sender: UIBarButtonItem) {
+        
+        RACustomCamera.shareCamera.takePhoto()
+    }
     
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603061CFBE75A000AAE83 /* RAConstant.swift */; };
 		D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7651CF84E1D005B444F /* AppDelegate.swift */; };
 		D8E2E7681CF84E1D005B444F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7671CF84E1D005B444F /* ViewController.swift */; };
 		D8E2E76B1CF84E1D005B444F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E2E7691CF84E1D005B444F /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D84603061CFBE75A000AAE83 /* RAConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAConstant.swift; sourceTree = "<group>"; };
 		D8E2E7621CF84E1D005B444F /* RACustomCameraSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACustomCameraSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E2E7651CF84E1D005B444F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E2E7671CF84E1D005B444F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		D8E2E7931CF85157005B444F /* RACustomCamera */ = {
 			isa = PBXGroup;
 			children = (
+				D84603061CFBE75A000AAE83 /* RAConstant.swift */,
 				D8E2E7941CF85192005B444F /* RACustomCamera.swift */,
 			);
 			path = RACustomCamera;
@@ -271,6 +274,7 @@
 				D8E2E7681CF84E1D005B444F /* ViewController.swift in Sources */,
 				D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */,
 				D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */,
+				D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +501,7 @@
 				D8E2E78C1CF84E1E005B444F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8E2E78D1CF84E1E005B444F /* Build configuration list for PBXNativeTarget "RACustomCameraSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +510,7 @@
 				D8E2E78F1CF84E1E005B444F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8E2E7901CF84E1E005B444F /* Build configuration list for PBXNativeTarget "RACustomCameraSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +519,7 @@
 				D8E2E7921CF84E1E005B444F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
