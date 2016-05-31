@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603061CFBE75A000AAE83 /* RAConstant.swift */; };
+		D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */; };
+		D846030B1CFD616E000AAE83 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D846030A1CFD616E000AAE83 /* PhotosUI.framework */; };
+		D846030D1CFD617E000AAE83 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D846030C1CFD617E000AAE83 /* Photos.framework */; };
 		D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7651CF84E1D005B444F /* AppDelegate.swift */; };
 		D8E2E7681CF84E1D005B444F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2E7671CF84E1D005B444F /* ViewController.swift */; };
 		D8E2E76B1CF84E1D005B444F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E2E7691CF84E1D005B444F /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		D84603061CFBE75A000AAE83 /* RAConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAConstant.swift; sourceTree = "<group>"; };
+		D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAPhotoSaveTool.swift; sourceTree = "<group>"; };
+		D846030A1CFD616E000AAE83 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		D846030C1CFD617E000AAE83 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		D8E2E7621CF84E1D005B444F /* RACustomCameraSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACustomCameraSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E2E7651CF84E1D005B444F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E2E7671CF84E1D005B444F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D846030D1CFD617E000AAE83 /* Photos.framework in Frameworks */,
+				D846030B1CFD616E000AAE83 /* PhotosUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +123,8 @@
 		D8E2E7791CF84E1E005B444F /* RACustomCameraSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				D846030C1CFD617E000AAE83 /* Photos.framework */,
+				D846030A1CFD616E000AAE83 /* PhotosUI.framework */,
 				D8E2E77A1CF84E1E005B444F /* RACustomCameraSwiftTests.swift */,
 				D8E2E77C1CF84E1E005B444F /* Info.plist */,
 			);
@@ -135,6 +145,7 @@
 			children = (
 				D84603061CFBE75A000AAE83 /* RAConstant.swift */,
 				D8E2E7941CF85192005B444F /* RACustomCamera.swift */,
+				D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */,
 			);
 			path = RACustomCamera;
 			sourceTree = "<group>";
@@ -275,6 +286,7 @@
 				D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */,
 				D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */,
 				D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */,
+				D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

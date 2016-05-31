@@ -23,6 +23,13 @@ class RACustomCamera: NSObject {
     private var imageOutput:AVCaptureStillImageOutput!
     private var priviewLayer:AVCaptureVideoPreviewLayer!
     
+    /// 是否允许自动保存图片\视频到相册 默认值true
+    internal var enableAutoSave:Bool = true
+    
+    /// 允许创建新的相册 默认值false
+    internal var allowNewPhotoBrowser:Bool = false
+    
+    
     
     ///单例
     internal static let shareCamera:RACustomCamera = {
@@ -36,12 +43,15 @@ class RACustomCamera: NSObject {
         super.init()
         
         installCameraDevice()
+        
+        
     }
 
 }
 
 // MARK: - public method
 extension RACustomCamera {
+
 
     /// 添加预览图层
     ///
@@ -90,9 +100,8 @@ extension RACustomCamera {
             
                 return
             }
-
             
-           UIImageWriteToSavedPhotosAlbum(jpegImage!, self,nil, nil)
+            UIImageWriteToSavedPhotosAlbum(jpegImage!, self,nil, nil)
             
         }
         
@@ -105,16 +114,11 @@ extension RACustomCamera {
     {
         
         if didFinishSavingWithError != nil
-            
         {
-            
             print("error!")
             
             return
-            
         }
-        
-        
         
         print("image was saved")
         
@@ -192,6 +196,5 @@ extension RACustomCamera {
             return AVMediaTypeMuxed
         }
     }
-    
-    
+
 }
