@@ -40,7 +40,13 @@ class ViewController: UIViewController {
 
     @IBAction func takePhotoClick(sender: UIBarButtonItem) {
         
-        RACustomCamera.shareCamera.takePhoto()
+        RACustomCamera.shareCamera.takePhoto { (image) in
+            
+            print("image \(image)")
+            
+        }
+        
+    
     }
     
 }

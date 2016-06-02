@@ -16,7 +16,11 @@ enum cameraDevice:Int {
     case muxed = 2
 }
 
+
 class RACustomCamera: NSObject {
+    
+    typealias callBackWithImage = ((image:UIImage)->())
+    typealias callBackWithVideo = (()->())
     
     private var session:AVCaptureSession!
     private var inputDevice:AVCaptureDeviceInput!
@@ -28,8 +32,6 @@ class RACustomCamera: NSObject {
     
     /// 允许创建新的相册 默认值false
     internal var allowNewPhotoBrowser:Bool = false
-    
-    
     
     ///单例
     internal static let shareCamera:RACustomCamera = {
@@ -83,7 +85,9 @@ extension RACustomCamera {
         }
     }
     
-    internal func takePhoto() -> UIImage {
+    internal func takePhoto(finishedWithImage:callBackWithImage?){
+        
+        
         
         let captureConnetion = imageOutput.connectionWithMediaType(switchMeiaType(.video))
         
@@ -103,9 +107,11 @@ extension RACustomCamera {
             
             UIImageWriteToSavedPhotosAlbum(jpegImage!, self,nil, nil)
             
+            
+            finishedWithImage?(image: jpegImage!)
+            
         }
         
-        return UIImage()
     }
     
     
