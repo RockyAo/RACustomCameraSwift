@@ -10,12 +10,27 @@ import UIKit
 import AVFoundation
 import AssetsLibrary
 
+/// 硬件类型
+///
+/// - video: 视频
+/// - audio: 音频
+/// - muxed: 混合
 enum cameraDevice:Int {
     case video = 0
     case audio = 1
     case muxed = 2
 }
 
+/// 闪光灯模式
+///
+/// - on:   闪光灯开
+/// - off:  闪光等关闭
+/// - auto: 闪光灯自动
+enum cameraFlashMode:Int {
+    case on = 0
+    case off = 1
+    case auto = 2
+}
 
 class RACustomCamera: NSObject {
     
@@ -85,6 +100,72 @@ extension RACustomCamera {
         }
     }
     
+    ///  闪光灯切换（每次调用按顺序切换闪光灯模式，默认 auto）
+    ///
+    /// - returns: 切换类型
+    internal func autoSwitchFlashMode() -> cameraFlashMode{
+    
+        let defaultDevice = swichDevice()
+        
+        if defaultDevice.flashMode == .Off {
+            
+            switchFlashMode(.on)
+            
+            return .on
+            
+        }else if defaultDevice.flashMode == .On{
+        
+            switchFlashMode(.auto)
+            
+            return .auto
+        }else{
+        
+            switchFlashMode(.off)
+            
+            return .off
+        }
+    }
+    
+    /// 切换指定闪光灯模式
+    ///
+    /// - parameter flashMode: 默认为auto
+    internal func switchFlashMode(flashMode:cameraFlashMode = .auto){
+        
+        let captureDevice = swichDevice()
+        
+        do{
+        
+            try captureDevice.lockForConfiguration()
+            
+        }catch let error as NSError{
+        
+            RAPrintInstance.shareInstance.printMessages("\(error)")
+        }
+        
+        
+        if captureDevice.hasFlash == false {
+            
+            RAPrintInstance.shareInstance.printMessages("设备没有闪光灯")
+            return
+        }
+        
+        switch flashMode {
+        case .on:
+            captureDevice.flashMode = .On
+            break
+        case .off:
+            captureDevice.flashMode = .Off
+            break
+        case .auto:
+            captureDevice.flashMode = .Auto
+        }
+        
+        captureDevice.unlockForConfiguration()
+    }
+    
+    /// 拍照按钮点击
+    ///
+    /// - parameter finishedWithImage: 回调
     internal func takePhoto(finishedWithImage:callBackWithImage?){
         
         if RAAuthorizationStatusTool.availibleCamera(.audio) == false {
@@ -155,7 +236,7 @@ extension RACustomCamera {
     /// - parameter deviceType: 设备类型 默认为视频
     ///
     /// - returns: 设备
-    private func swichDevice(deviceType:cameraDevice = .video) -> AVCaptureDevice{
+    private func swichDevice(deviceType:cameraDevice = .muxed) -> AVCaptureDevice{
     
         let device = AVCaptureDevice.defaultDeviceWithMediaType(switchMeiaType(deviceType))
         
@@ -183,5 +264,6 @@ extension RACustomCamera {
             return AVMediaTypeMuxed
         }
     }
+    
 
 }
