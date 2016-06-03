@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81E94941D0170A500251F86 /* RAAuthorizationStatusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */; };
 		D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603061CFBE75A000AAE83 /* RAConstant.swift */; };
 		D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */; };
 		D846030B1CFD616E000AAE83 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D846030A1CFD616E000AAE83 /* PhotosUI.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAuthorizationStatusTool.swift; sourceTree = "<group>"; };
 		D84603061CFBE75A000AAE83 /* RAConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAConstant.swift; sourceTree = "<group>"; };
 		D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAPhotoSaveTool.swift; sourceTree = "<group>"; };
 		D846030A1CFD616E000AAE83 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
@@ -146,6 +148,7 @@
 				D84603061CFBE75A000AAE83 /* RAConstant.swift */,
 				D8E2E7941CF85192005B444F /* RACustomCamera.swift */,
 				D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */,
+				D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */,
 			);
 			path = RACustomCamera;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				D8E2E7661CF84E1D005B444F /* AppDelegate.swift in Sources */,
 				D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */,
 				D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */,
+				D81E94941D0170A500251F86 /* RAAuthorizationStatusTool.swift in Sources */,
 				D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

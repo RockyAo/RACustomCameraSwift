@@ -87,7 +87,11 @@ extension RACustomCamera {
     
     internal func takePhoto(finishedWithImage:callBackWithImage?){
         
-        
+        if RAAuthorizationStatusTool.availibleCamera(.audio) == false {
+            
+            print("无相机使用权限")
+            return
+        }
         
         let captureConnetion = imageOutput.connectionWithMediaType(switchMeiaType(.video))
         
