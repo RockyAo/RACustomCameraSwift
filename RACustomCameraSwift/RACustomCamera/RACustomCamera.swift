@@ -32,15 +32,25 @@ enum cameraFlashMode:Int {
     case auto = 2
 }
 
+/// 摄像头类型
+///
+/// - backCamera:  后置摄像头
+/// - frontCamera: 前置摄像头
+/// - none:        无
+enum cameraType : Int{
+    
+    case backCamera = 0
+    case frontCamera = 1
+    case none = 2
+}
+
 class RACustomCamera: NSObject {
     
     typealias callBackWithImage = ((image:UIImage)->())
     typealias callBackWithVideo = (()->())
     
-    private var session:AVCaptureSession!
-    private var inputDevice:AVCaptureDeviceInput!
-    private var imageOutput:AVCaptureStillImageOutput!
-    private var priviewLayer:AVCaptureVideoPreviewLayer!
+   
+
     
     /// 是否允许自动保存图片\视频到相册 默认值true
     internal var enableAutoSave:Bool = true
@@ -56,19 +66,25 @@ class RACustomCamera: NSObject {
         return camera
     }()
     
+    
+    private var session:AVCaptureSession!
+    private var inputDevice:AVCaptureDeviceInput!
+    private var imageOutput:AVCaptureStillImageOutput!
+    private var priviewLayer:AVCaptureVideoPreviewLayer!
+    
+    ///是否正在使用前置摄像头
+    private var isUsingFrontCamera:Bool = false!
+    
     override init() {
         super.init()
         
         installCameraDevice()
-        
-        
     }
 
 }
 
 // MARK: - public method
 extension RACustomCamera {
-
 
     /// 添加预览图层
     ///
@@ -118,11 +134,16 @@ extension RACustomCamera {
             switchFlashMode(.auto)
             
             return .auto
-        }else{
+            
+        }else if defaultDevice.flashMode == .Auto{
         
             switchFlashMode(.off)
             
             return .off
+            
+        }else{
+        
+            return .auto
         }
     }
     
@@ -163,7 +184,15 @@ extension RACustomCamera {
         captureDevice.unlockForConfiguration()
     }
     
-    /// 拍照按钮点击
+    /// 切换摄像头
+    ///
+    /// - parameter type: 前置或后置 默认为自动切换
+    internal func swithCamera(type:cameraType = .none){
+    
+
+    }
+    
+    /// 拍照
     ///
     /// - parameter finishedWithImage: 回调
     internal func takePhoto(finishedWithImage:callBackWithImage?){
