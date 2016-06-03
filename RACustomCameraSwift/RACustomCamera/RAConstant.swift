@@ -1,8 +1,8 @@
 //
 //  Constant.swift
-//  SwiftWeiBo
 //
-//  Created by ZCBL on 16/5/17.
+//
+//  Created by Rocky on 16/5/17.
 //  Copyright © 2016年 RockyAo. All rights reserved.
 //
 

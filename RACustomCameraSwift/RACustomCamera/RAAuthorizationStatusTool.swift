@@ -2,7 +2,7 @@
 //  RAAuthorizationStatusTool.swift
 //  RACustomCameraSwift
 //
-//  Created by ZCBL on 16/6/3.
+//  Created by Rocky on 16/6/3.
 //  Copyright © 2016年 RockyAo. All rights reserved.
 //
 

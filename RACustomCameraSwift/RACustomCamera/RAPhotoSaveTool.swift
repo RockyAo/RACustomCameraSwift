@@ -2,7 +2,7 @@
 //  RAPhotoSaveTool.swift
 //  RACustomCameraSwift
 //
-//  Created by ZCBL on 16/5/31.
+//  Created by Rocky on 16/5/31.
 //  Copyright © 2016年 RockyAo. All rights reserved.
 //
 
@@ -41,10 +41,13 @@ class RAPhotoSaveTool: NSObject {
 extension RAPhotoSaveTool {
 
     private class func savePhoto(data:NSData!,needNewalbum:Bool = false,albumName:String? = "") -> Bool{
-    
-        let photoLibrary = PHPhotoLibrary.sharedPhotoLibrary()
         
-       
+        
+        if RAAuthorizationStatusTool.availiblePhotoAlbum() == false {
+            
+            return false
+        }
+        
         
         
         return true
