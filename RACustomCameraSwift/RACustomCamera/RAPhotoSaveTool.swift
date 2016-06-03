@@ -44,23 +44,7 @@ extension RAPhotoSaveTool {
     
         let photoLibrary = PHPhotoLibrary.sharedPhotoLibrary()
         
-        let authorization = PHPhotoLibrary.authorizationStatus()
-        
-    
-        if authorization != .Authorized{
-            
-            PHPhotoLibrary.requestAuthorization({ (PHAuthorizationStatus) in
-                
-                print(PHAuthorizationStatus)
-            })
-        }
-        
-        if PHPhotoLibrary.authorizationStatus() == .Denied || PHPhotoLibrary.authorizationStatus() == .Restricted {
-            
-            print("false 写入相册失败,无相册使用权限")
-            
-            return false
-        }
+       
         
         
         return true

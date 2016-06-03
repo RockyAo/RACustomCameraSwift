@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 enum mediaType:Int {
     case video = 0
@@ -45,4 +46,33 @@ class RAAuthorizationStatusTool: NSObject {
         }
         
     }
+    
+    /// 是否拥有相册使用权限
+    ///
+    /// - returns: true/false
+    class internal func availiblePhotoAlbum() -> Bool{
+    
+        let authorization = PHPhotoLibrary.authorizationStatus()
+        
+        if authorization != .Authorized{
+            
+            PHPhotoLibrary.requestAuthorization({ (PHAuthorizationStatus) in
+                
+                print(PHAuthorizationStatus)
+            })
+        }
+        
+        if PHPhotoLibrary.authorizationStatus() == .Denied || PHPhotoLibrary.authorizationStatus() == .Restricted {
+            
+            print("false 写入相册失败,无相册使用权限")
+            
+            return false
+        }else{
+        
+            return true
+        }
+    
+    }
+    
+    
 }
