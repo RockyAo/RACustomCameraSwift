@@ -73,7 +73,7 @@ class RACustomCamera: NSObject {
     private var priviewLayer:AVCaptureVideoPreviewLayer!
     
     ///是否正在使用前置摄像头
-    private var isUsingFrontCamera:Bool = false!
+    private var isUsingFrontCamera:Bool = false
     
     override init() {
         super.init()
