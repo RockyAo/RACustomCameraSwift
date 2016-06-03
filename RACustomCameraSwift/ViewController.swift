@@ -42,7 +42,8 @@ class ViewController: UIViewController {
         
         RACustomCamera.shareCamera.takePhoto { (image) in
             
-            print("image \(image)")
+            
+            RAPrintInstance.shareInstance.printMessages("image \(image)")
             
         }
         

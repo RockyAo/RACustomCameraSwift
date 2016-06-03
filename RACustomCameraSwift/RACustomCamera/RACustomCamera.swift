@@ -89,7 +89,8 @@ extension RACustomCamera {
         
         if RAAuthorizationStatusTool.availibleCamera(.audio) == false {
             
-            print("无相机使用权限")
+            RAPrintInstance.shareInstance.printMessages("无相机使用权限")
+            
             return
         }
         
@@ -101,38 +102,14 @@ extension RACustomCamera {
             
             let jpegImage = UIImage(data: jpegData)
         
-            
-            let author = ALAssetsLibrary.authorizationStatus()
-            
-            if author == ALAuthorizationStatus.Restricted || author == ALAuthorizationStatus.Denied {
-            
-                return
-            }
-            
-            UIImageWriteToSavedPhotosAlbum(jpegImage!, self,nil, nil)
-            
-            
             finishedWithImage?(image: jpegImage!)
             
-        }
-        
-    }
-    
-    
-    func image(image: UIImage, didFinishSavingWithError: NSError?,contextInfo: AnyObject)
-        
-    {
-        
-        if didFinishSavingWithError != nil
-        {
-            print("error!")
             
-            return
+            //未完成
         }
         
-        print("image was saved")
-        
     }
+    
 }
 
 // MARK: - 初始化相机相关
