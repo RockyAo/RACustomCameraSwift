@@ -74,28 +74,36 @@ class RACustomCamera: NSObject {
     
     ///是否正在使用前置摄像头
     private var isUsingFrontCamera:Bool = false
+    /// 当前控制器
+    private var currentVc:UIViewController?
     
     override init() {
         super.init()
         
         installCameraDevice()
     }
-
+    
 }
 
 // MARK: - public method
 extension RACustomCamera {
 
-    /// 添加预览图层
+    ///  添加预览图层
     ///
-    /// - parameter view:  添加到哪个view上
-    /// - parameter frame: 尺寸
-    internal func addPrviewLayerToView(view:UIView!,frame:CGRect!) -> Void{
+    ///  - parameter currentViewController: 当前控制器
+    ///  - parameter view:                  添加到哪个view上
+    ///  - parameter frame:                 尺寸
+    internal func addPrviewLayerToView(currentViewController:UIViewController!,view:UIView!,frame:CGRect!) -> Void{
+        
+        assert(currentViewController != nil, "currentViewController can not be nil")
+        assert(view != nil, "view can not be nil")
+        assert(frame != nil, "frame can not be nil")
     
         priviewLayer.frame = frame
+        currentVc = currentViewController
         view.layer.masksToBounds = true
         view.layer.insertSublayer(priviewLayer, atIndex: 0)
-        
+     
     }
     
     /// 启动相机
@@ -265,7 +273,7 @@ extension RACustomCamera {
     /// - parameter deviceType: 设备类型 默认为视频
     ///
     /// - returns: 设备
-    private func swichDevice(deviceType:cameraDevice = .muxed) -> AVCaptureDevice{
+    private func swichDevice(deviceType:cameraDevice = .video) -> AVCaptureDevice{
     
         let device = AVCaptureDevice.defaultDeviceWithMediaType(switchMeiaType(deviceType))
         

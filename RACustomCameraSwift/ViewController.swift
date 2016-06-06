@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        RACustomCamera.shareCamera.addPrviewLayerToView(view, frame: CGRectMake(0, 0, kRAMainScreenW(), kRAMainScreenH()))
+        RACustomCamera.shareCamera.addPrviewLayerToView(self,view: view, frame: CGRectMake(0, 0, kRAMainScreenW(), kRAMainScreenH()))
         
     }
     

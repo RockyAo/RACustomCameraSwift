@@ -48,8 +48,6 @@ extension RAPhotoSaveTool {
             return false
         }
         
-        
-        
         return true
     }
     

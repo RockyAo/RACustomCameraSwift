@@ -1,0 +1,6 @@
+framework module Pods_RACustomCameraSwift {
+  umbrella header "Pods-RACustomCameraSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
