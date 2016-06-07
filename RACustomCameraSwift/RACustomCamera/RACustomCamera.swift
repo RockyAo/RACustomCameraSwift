@@ -256,7 +256,7 @@ extension RACustomCamera {
             
         }catch let error as NSError{
         
-            print(error)
+            printRALog("\(error)")
         }
         
         imageOutput = AVCaptureStillImageOutput()
@@ -266,11 +266,18 @@ extension RACustomCamera {
         if session.canAddInput(inputDevice) == true {
             
             session.addInput(inputDevice)
+            
+        }else{
+        
+            printRALog("添加输入设备失败")
         }
         
         if session.canAddOutput(imageOutput) == true {
             
             session.addOutput(imageOutput)
+        }else{
+        
+            printRALog("添加输出设备失败")
         }
         
         priviewLayer = AVCaptureVideoPreviewLayer(session:session)
