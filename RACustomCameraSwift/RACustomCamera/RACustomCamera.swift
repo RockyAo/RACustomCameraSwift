@@ -231,7 +231,37 @@ extension RACustomCamera {
     /// - parameter type: 前置或后置 默认为自动切换
     internal func swithCamera(type:cameraType = .none){
     
-
+        var desiredPosition:AVCaptureDevicePosition
+        
+        if isUsingFrontCamera == true {
+            
+            desiredPosition = AVCaptureDevicePosition.Back
+        }else{
+        
+            desiredPosition = AVCaptureDevicePosition.Front
+        }
+        
+        
+        for singleDevice:AVCaptureDevice in AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo) as! Array {
+            
+            printRALog("\(singleDevice.localizedName)")
+            
+            if singleDevice.position == desiredPosition {
+                
+                session.beginConfiguration()
+                
+                session.removeInput(inputDevice)
+                
+                let input = try! AVCaptureDeviceInput(device: singleDevice)
+                
+                if session.canAddInput(input) {
+                    
+                    session.addInput(input)
+                }
+            }
+        }
+        
+        
     }
     
     /// 拍照
@@ -328,6 +358,8 @@ extension RACustomCamera {
         defaultDevice.flashMode = AVCaptureFlashMode.Auto
 
         defaultDevice.unlockForConfiguration()
+        
+      
     }
     
     /// 获取设备
@@ -338,7 +370,7 @@ extension RACustomCamera {
     private func swichDevice(deviceType:cameraDevice = .video) -> AVCaptureDevice{
     
         let device = AVCaptureDevice.defaultDeviceWithMediaType(switchMeiaType(deviceType))
-        
+    
         return device
     }
     
