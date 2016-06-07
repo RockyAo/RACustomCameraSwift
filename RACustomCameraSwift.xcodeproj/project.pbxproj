@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C08FB9D1D051B0C007905AF /* RACustomCamera+RAExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08FB9C1D051B0C007905AF /* RACustomCamera+RAExtension.swift */; };
-		CD7F40074EB864C57A807BA6 /* Pods_RACustomCameraSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252A381EE0227D6FB7788278 /* Pods_RACustomCameraSwift.framework */; };
 		D81E94941D0170A500251F86 /* RAAuthorizationStatusTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */; };
-		D81E94961D0188FE00251F86 /* RAPrintInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81E94951D0188FE00251F86 /* RAPrintInstance.swift */; };
 		D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603061CFBE75A000AAE83 /* RAConstant.swift */; };
 		D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */; };
 		D846030B1CFD616E000AAE83 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D846030A1CFD616E000AAE83 /* PhotosUI.framework */; };
@@ -49,7 +47,6 @@
 		68DEA3628D2F00E46199F71A /* Pods-RACustomCameraSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACustomCameraSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-RACustomCameraSwift/Pods-RACustomCameraSwift.release.xcconfig"; sourceTree = "<group>"; };
 		A425393DDE703EBCE2A9444A /* Pods-RACustomCameraSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACustomCameraSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RACustomCameraSwift/Pods-RACustomCameraSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAAuthorizationStatusTool.swift; sourceTree = "<group>"; };
-		D81E94951D0188FE00251F86 /* RAPrintInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAPrintInstance.swift; sourceTree = "<group>"; };
 		D84603061CFBE75A000AAE83 /* RAConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAConstant.swift; sourceTree = "<group>"; };
 		D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAPhotoSaveTool.swift; sourceTree = "<group>"; };
 		D846030A1CFD616E000AAE83 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
@@ -77,7 +74,6 @@
 			files = (
 				D846030D1CFD617E000AAE83 /* Photos.framework in Frameworks */,
 				D846030B1CFD616E000AAE83 /* PhotosUI.framework in Frameworks */,
-				CD7F40074EB864C57A807BA6 /* Pods_RACustomCameraSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +174,6 @@
 				D8E2E7941CF85192005B444F /* RACustomCamera.swift */,
 				D84603081CFD5F7E000AAE83 /* RAPhotoSaveTool.swift */,
 				D81E94931D0170A500251F86 /* RAAuthorizationStatusTool.swift */,
-				D81E94951D0188FE00251F86 /* RAPrintInstance.swift */,
 				5C08FB9C1D051B0C007905AF /* RACustomCamera+RAExtension.swift */,
 				5C08FB9E1D058964007905AF /* RACustomCameraSwift-Bridging-Header.h */,
 			);
@@ -192,12 +187,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8E2E78A1CF84E1E005B444F /* Build configuration list for PBXNativeTarget "RACustomCameraSwift" */;
 			buildPhases = (
-				214BE6FF3BE63B816776713E /* Check Pods Manifest.lock */,
 				D8E2E75E1CF84E1D005B444F /* Sources */,
 				D8E2E75F1CF84E1D005B444F /* Frameworks */,
 				D8E2E7601CF84E1D005B444F /* Resources */,
-				9C3A8157189E0423937A6E42 /* Embed Pods Frameworks */,
-				67ACBC696583906CDCAF8F0B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,54 +307,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		214BE6FF3BE63B816776713E /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		67ACBC696583906CDCAF8F0B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RACustomCameraSwift/Pods-RACustomCameraSwift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C3A8157189E0423937A6E42 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RACustomCameraSwift/Pods-RACustomCameraSwift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		D8E2E75E1CF84E1D005B444F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -374,7 +318,6 @@
 				D8E2E7951CF85192005B444F /* RACustomCamera.swift in Sources */,
 				D84603071CFBE75A000AAE83 /* RAConstant.swift in Sources */,
 				D81E94941D0170A500251F86 /* RAAuthorizationStatusTool.swift in Sources */,
-				D81E94961D0188FE00251F86 /* RAPrintInstance.swift in Sources */,
 				D84603091CFD5F7E000AAE83 /* RAPhotoSaveTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

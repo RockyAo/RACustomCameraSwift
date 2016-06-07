@@ -168,13 +168,13 @@ extension RACustomCamera {
             
         }catch let error as NSError{
         
-            RAPrintInstance.shareInstance.printMessages("\(error)")
+            printRALog("\(error)")
         }
         
         
         if captureDevice.hasFlash == false {
             
-            RAPrintInstance.shareInstance.printMessages("设备没有闪光灯")
+            printRALog("设备没有闪光灯")
             return
         }
         
@@ -207,7 +207,7 @@ extension RACustomCamera {
         
         if RAAuthorizationStatusTool.availibleCamera(.audio) == false {
             
-            RAPrintInstance.shareInstance.printMessages("无相机使用权限")
+            printRALog("无相机使用权限")
             
             return
         }
