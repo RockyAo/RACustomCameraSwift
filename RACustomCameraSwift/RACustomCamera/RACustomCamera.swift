@@ -258,8 +258,16 @@ extension RACustomCamera {
                     
                     session.addInput(input)
                 }
+                
+                session.commitConfiguration()
+                
+                
+                break
             }
         }
+        
+        
+        isUsingFrontCamera = !isUsingFrontCamera
         
         
     }

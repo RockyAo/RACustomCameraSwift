@@ -52,6 +52,10 @@ class ViewController: UIViewController {
     
     }
     
+    @IBAction func switchCameraButtonClick(sender: AnyObject) {
+        
+        RACustomCamera.shareCamera.swithCamera()
+    }
     @IBAction func switchFlashButtonClick(sender: UIBarButtonItem) {
         
         let flashMode = RACustomCamera.shareCamera.autoSwitchFlashMode()

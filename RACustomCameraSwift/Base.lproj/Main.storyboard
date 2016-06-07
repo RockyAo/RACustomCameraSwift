@@ -20,6 +20,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsB-ds-8xZ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uWL-p4-Hlg"/>
+                                    <barButtonItem title="切换摄像头" id="u7C-YS-r7c">
+                                        <connections>
+                                            <action selector="switchCameraButtonClick:" destination="BYZ-38-t0r" id="gYQ-HB-yiF"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SBV-Hd-NV6"/>
                                     <barButtonItem title="闪光灯自动" id="fPY-lg-SRw">
                                         <connections>
