@@ -112,6 +112,11 @@ extension RACustomCamera {
         if session.running == false {
             
             session.startRunning()
+            
+            if session.running != true {
+                
+                printRALog("相机启动失败")
+            }
         }
     }
     
@@ -121,6 +126,11 @@ extension RACustomCamera {
         if session.running == true {
             
             session.stopRunning()
+            
+            if session.running == true {
+                
+                printRALog("相机关闭失败")
+            }
         }
     }
     

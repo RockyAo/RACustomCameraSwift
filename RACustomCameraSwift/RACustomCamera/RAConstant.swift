@@ -60,6 +60,6 @@ public func kRASystemVersion() -> String{
 public func printRALog<T>(messages:T,file:String = #file,method:String = #function,line:Int = #line){
     
     #if DEBUG
-        print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(messages)")
+        print("\((file as NSString).lastPathComponent),methodName:\(method),[line:\(line)]messages: \(messages)")
     #endif
 }
