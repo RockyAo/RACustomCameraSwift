@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var switchFlashButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -50,5 +52,23 @@ class ViewController: UIViewController {
     
     }
     
+    @IBAction func switchFlashButtonClick(sender: UIBarButtonItem) {
+        
+        let flashMode = RACustomCamera.shareCamera.autoSwitchFlashMode()
+        
+        switch flashMode {
+        case .on:
+            
+            switchFlashButton.title = "闪光灯开"
+        case .off:
+            
+            switchFlashButton.title = "闪光灯关"
+        case .auto:
+            
+            switchFlashButton.title = "闪光灯自动"
+        default: break
+            
+        }
+    }
 }
 

@@ -32,6 +32,14 @@ enum cameraFlashMode:Int {
     case auto = 2
 }
 
+
+enum returnCameraFlashMode:Int {
+    case on = 0
+    case off = 1
+    case auto = 2
+    case noFlash = 3
+}
+
 /// 摄像头类型
 ///
 /// - backCamera:  后置摄像头
@@ -137,9 +145,25 @@ extension RACustomCamera {
     ///  闪光灯切换（每次调用按顺序切换闪光灯模式，默认 auto）
     ///
     /// - returns: 切换类型
-    internal func autoSwitchFlashMode() -> cameraFlashMode{
+    internal func autoSwitchFlashMode() -> returnCameraFlashMode{
     
         let defaultDevice = swichDevice()
+        
+        do{
+            
+            try defaultDevice.lockForConfiguration()
+            
+        }catch let error as NSError{
+            
+            printRALog("\(error)")
+        }
+        
+        
+        if defaultDevice.hasFlash == false {
+            
+            printRALog("设备没有闪光灯")
+            return .noFlash
+        }
         
         if defaultDevice.flashMode == .Off {
             
@@ -283,6 +307,27 @@ extension RACustomCamera {
         priviewLayer = AVCaptureVideoPreviewLayer(session:session)
         priviewLayer.videoGravity = AVLayerVideoGravityResizeAspect
         
+        let defaultDevice = swichDevice()
+        
+        do{
+            
+            try defaultDevice.lockForConfiguration()
+            
+        }catch let error as NSError{
+            
+            printRALog("\(error)")
+        }
+        
+        
+        if defaultDevice.hasFlash == false {
+            
+            printRALog("设备没有闪光灯")
+            return
+        }
+        
+        defaultDevice.flashMode = AVCaptureFlashMode.Auto
+
+        defaultDevice.unlockForConfiguration()
     }
     
     /// 获取设备

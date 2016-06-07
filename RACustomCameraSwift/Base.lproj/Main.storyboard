@@ -21,6 +21,12 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SBV-Hd-NV6"/>
+                                    <barButtonItem title="闪光灯自动" id="fPY-lg-SRw">
+                                        <connections>
+                                            <action selector="switchFlashButtonClick:" destination="BYZ-38-t0r" id="BCm-8q-qXz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tZ4-jT-F5N"/>
                                     <barButtonItem title="拍照" id="k96-d9-cHx">
                                         <connections>
                                             <action selector="takePhotoClick:" destination="BYZ-38-t0r" id="LBx-tT-cMc"/>
@@ -37,6 +43,9 @@
                             <constraint firstItem="wsB-ds-8xZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n83-4o-nli"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="switchFlashButton" destination="fPY-lg-SRw" id="jmh-LS-4Qm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
